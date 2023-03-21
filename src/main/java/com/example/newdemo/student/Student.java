@@ -1,12 +1,31 @@
 package com.example.newdemo.student;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+
+@Entity
+@Table(name = "student")
 public class Student {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Id
+    @GeneratedValue
+    private Integer id;
     private String firstName;
     private String lastName;
     private LocalDateTime dateOfBirth;
+    @Column(unique = true)
     private String email;
+    @Transient
     private Integer age;
 
     public Student(String firstName, String lastName, LocalDateTime dateOfBirth, String email, Integer age) {
@@ -53,6 +72,7 @@ public class Student {
     }
 
     public Integer getAge() {
+
         return age;
     }
 
