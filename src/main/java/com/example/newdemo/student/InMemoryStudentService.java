@@ -20,21 +20,22 @@ public class InMemoryStudentService implements StudentService {
 
     @Override
     public List<Student> findAllStudents() {
-        return null;
+        return dao.findAllStudents();
     }
 
     @Override
     public Student findByEmail(String email) {
-        return null;
+        return dao.findByEmail(email);
     }
 
     @Override
     public Student update(Student s) {
-        return null;
+        return dao.update(s);
     }
 
     @Override
     public void delete(String email) {
+        dao.delete(email);
 
     }
 }
